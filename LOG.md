@@ -29,3 +29,26 @@ on the page, not the link address of the website hosting it.
 **Screenshot location:**
 `images/image_load_error_fixed`
 
+## Error 2 : Buggy Version
+
+### Bug #5 — Missing `box-sizing: border-box`
+**Owner:** Ben Chapuma
+
+**What the bug is:**
+The global reset rule `* { box-sizing: border-box; }` was removed from the top of `buggy-version.css`.
+
+**Why it causes this specific symptom:**
+Without `border-box`, elements fall back to the default `box-sizing: content-box`, where `padding` and `border` are added *on top of* an element's declared `width` rather than being included within it. The `.card` elements inside `.services-container` (a flex row) use `padding: 30px` and `min-width: 250px`. Under `content-box`, each card's true rendered width becomes 250px + 60px (30px padding on each side) = 310px, rather than staying at 250px as intended. With three cards now wider than designed, they overflow their flex row, causing the layout to break — cards spill past the container's `max-width: 1000px`, wrap awkwardly, instead of sitting neatly in a centered row as in the working version.
+
+**Screenshots:**
+`images/bug5-box-sizing-overflow-error-intro`
+`images/bug5-box-sizing-overflow.png`
+
+**Fix:**
+Restored the global rule at the top of the stylesheet:
+```css
+* {
+    box-sizing: border-box;
+}
+```
+
