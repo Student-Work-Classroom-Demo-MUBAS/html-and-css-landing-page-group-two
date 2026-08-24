@@ -59,3 +59,8 @@ body {
     cursor: pointer;
     font-weight: 600;
 }
+
+.btn-primary {
+    background-color: #0f172a;
+    color: #ffffff;
+}
