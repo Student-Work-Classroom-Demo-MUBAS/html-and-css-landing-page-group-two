@@ -2,7 +2,7 @@
 **Group Name:** Group Two
 **Assignment 2:** HTML and CSS Landing Page
 **Date:** 8/24/2026
-**Lab Session:** 3:00PM - 4:00PM
+**Session:** 3:00PM - 4:00PM
 ---
 ## Error 1
 **What we were working on:** 
@@ -33,6 +33,8 @@ on the page, not the link address of the website hosting it.
 
 ### Bug #5 — Missing `box-sizing: border-box`
 **Owner:** Ben Chapuma
+**Date:** 8/24/2026 - 8/25/2026
+**Session:** 10:00PM - 1:00AM
 
 **What the bug is:**
 The global reset rule `* { box-sizing: border-box; }` was removed from the top of `buggy-version.css`.
