@@ -157,7 +157,7 @@ footer {
     }
 
     .services-container {
-         flex-direction: column;
+         flex-direction: column !important;
     }
 
 }
