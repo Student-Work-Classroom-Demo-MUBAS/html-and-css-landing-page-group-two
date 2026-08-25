@@ -54,3 +54,27 @@ Restored the global rule at the top of the stylesheet:
 }
 ```
 
+## Error 3 : buggy-version
+
+### Bug #2 — Inline style for flexbox which beats the media query
+**Owner:** Tamanda Kamoto
+**Date:** 8/25/2026
+**Session:** 04:45AM-07:25AM
+
+**What the bug is:**
+The inline style "display: flex; flex-wrap: nowrap; flex-direction: row;" overrides the mobile media query.
+
+**Why it causes this specific symptom:**
+An inline style written directly on the element, in this case services-container class, has a higher specificity score as compared to the media query in the external stylesheet. When the browser evaluates CSS specificity, the inline styles win against the media query attributes for the services-container causing the service cards to remain adjacent to each other even though the screen size is below the breakpoint where they're supposed to be stacked.
+
+**Screenshots:**
+![alt text](images/bug2_inline_style_override_media_query_error.PNG)
+![alt text](images/bug2_inline_style_override_media_query_error_fixed.PNG)
+
+**Fix:**
+Used !important inside the media query:
+...
+.services-container {
+    flex-direction: column !important;
+}
+...
