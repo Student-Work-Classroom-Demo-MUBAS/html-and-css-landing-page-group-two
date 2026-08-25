@@ -78,3 +78,42 @@ Used !important inside the media query:
     flex-direction: column !important;
 }
 ...
+## Error 4 : buggy-version
+
+### Bug #0 — Missing `alt` attribute on a content image
+
+**Owner:** Olinda Vashi
+
+**Date:** 8/25/2026
+
+**Session:** 11:20AM-12:00PM
+
+**What the bug is:**
+
+The `alt` attribute was removed from the bicycle image in `buggy-version.html`.
+
+**Why it causes this specific symptom:**
+
+Without the `alt` attribute, the image still displays when it loads, but it has no text alternative describing the image. This affects accessibility for users who rely on alternative text or screen readers. And in case the image fail to load it will just show an image icom without describing what that image is.
+
+**Screenshots:**
+
+`images/Bug#0_Remove the alt attribute.PNG`
+
+`images/Bug0_an image icon without a description.PNG`
+
+`images/Bug0_Demostration when alt is included it provides alternative text for an image.PNG`
+
+**Fix:**
+
+Restored the `alt` attribute:
+
+```html
+<img src="https://airtasker-seo-assets-prod.s3.amazonaws.com/en_AU/1695029554843-Bicycle-service.jpg"
+     alt="Bicycle mechanic fixing a tyre"
+     class="hero-img">
+```
+
+**What I learned from this:**
+
+I learned that a missing `alt` attribute may not cause a visible change, but it is important for accessibility and provides a description of the image.
